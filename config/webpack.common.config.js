@@ -5,7 +5,7 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].[chunkhash:8].bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
   module: {
