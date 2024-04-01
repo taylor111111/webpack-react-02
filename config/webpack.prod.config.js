@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.config.js');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -15,5 +16,9 @@ module.exports = merge(common, {
                 collapseWhitespace: true,//去除空格
             },
         }),
-    ]
+    ],
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
 });
