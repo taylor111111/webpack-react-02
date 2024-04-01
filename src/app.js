@@ -1,3 +1,9 @@
+import React from 'react';
 
-var root =document.getElementById('root');
-root.innerHTML = 'hello, webpack!';
+function App() {
+    return (
+        <div className="App">Hello World React</div>
+    );
+}
+
+export default App;
