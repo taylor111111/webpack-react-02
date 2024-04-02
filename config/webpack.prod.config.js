@@ -15,6 +15,7 @@ module.exports = merge(common, {
                 removeComments: true,//去除注释
                 collapseWhitespace: true,//去除空格
             },
+            title: "Product",
         }),
     ],
     optimization: {
