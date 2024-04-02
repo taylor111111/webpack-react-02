@@ -6,6 +6,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const toml = require('toml');
+const yaml = require('yamljs');
+const json5 = require('json5');
+
+
 module.exports = merge(common, {
     mode: 'development',
     // devtool: "cheap-module-eval-source-map",
@@ -37,6 +42,28 @@ module.exports = merge(common, {
             {
                 test: /\.xml$/i,
                 use: ['xml-loader'],
+            },
+
+            {
+                test: /\.toml$/i,
+                type: 'json',
+                parser: {
+                    parse: toml.parse,
+                },
+            },
+            {
+                test: /\.yaml$/i,
+                type: 'json',
+                parser: {
+                    parse: yaml.parse,
+                },
+            },
+            {
+                test: /\.json5$/i,
+                type: 'json',
+                parser: {
+                    parse: json5.parse,
+                },
             },
         ],
     },
