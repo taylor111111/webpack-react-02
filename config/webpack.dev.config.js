@@ -28,7 +28,8 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             template: 'public/index.html',
             inject: 'body',
-            hash: false
+            hash: false,
+            title: 'Development',
         }),
         new webpack.HotModuleReplacementPlugin(),
         new BundleAnalyzerPlugin()

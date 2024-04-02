@@ -2,8 +2,13 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    // entry: {
+    //     app: './src/index.js',
+    // },
+
     entry: {
-        app: './src/index.js',
+        index: './src/index.js',
+        print: './src/print.js',
     },
     output: {
         filename: 'js/[name].[chunkhash:8].bundle.js',
