@@ -27,5 +27,17 @@ module.exports = merge(common, {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new BundleAnalyzerPlugin()
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.(csv|tsv)$/i,
+                use: ['csv-loader'],
+            },
+            {
+                test: /\.xml$/i,
+                use: ['xml-loader'],
+            },
+        ],
+    },
 });
