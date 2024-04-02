@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
+    // devtool: "cheap-module-eval-source-map",
     output: {
         filename: 'js/[name].[hash:8].bundle.js',
     },

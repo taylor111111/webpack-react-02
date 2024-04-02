@@ -23,7 +23,38 @@ module.exports = {
                     'style-loader',// 最后计算完的css，将会使用style-loader生成一个内容为最终解析完的css代码的style标签，放到head标签里
                     'css-loader' // css-loader加载器去解析这个文件，遇到“@import”等语句就将相应样式文件引入
                 ]
-            }
+            },
+            {
+                test: /\.(jpg|png|gif)$/, //图片
+                use: {
+                    loader: "url-loader",
+                    options: {
+                        name: "[name].[ext]",
+                        outputPath: "images/",
+                        limit: 8192 // 大于8Kb走file-loader（好像是自动的不用添加fallback），小的ICON什么的直接打包插入到bundle.js中减少Http请求
+                    }
+                }
+            },
+            {
+                test: /\.(eot|ttf|svg|woff|woff2)$/, // 字体
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name]_[hash].[ext]",
+                        outputPath: "font/"
+                    }
+                }
+            },
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/, //媒体文件
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[hash:8].[ext]",
+                        outputPath: "media/"
+                    }
+                }
+            },
         ]
     },
     // optimization: {
