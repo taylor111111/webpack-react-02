@@ -14,6 +14,7 @@ const json5 = require('json5');
 module.exports = merge(common, {
     mode: 'development',
     // devtool: "cheap-module-eval-source-map",
+    devtool: 'inline-source-map',
     output: {
         filename: 'js/[name].[hash:8].bundle.js',
     },
