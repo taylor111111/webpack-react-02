@@ -6,10 +6,24 @@ module.exports = {
     //     app: './src/index.js',
     // },
 
-    entry: {
+    /*entry: {
         index: './src/index.js',
         print: './src/print.js',
+    },*/
+
+    entry: {
+        index: {
+            import: './src/index.js',
+            dependOn: 'shared',
+        },
+        print: {
+            import: './src/print.js',
+            dependOn: 'shared',
+        },
+        shared: 'lodash',
     },
+
+
     output: {
         filename: 'js/[name].[chunkhash:8].bundle.js',
         path: path.resolve(__dirname, '../dist')
@@ -78,6 +92,10 @@ module.exports = {
     //         }
     //     }
     // }
+
+    optimization: {
+        runtimeChunk: 'single',
+    },
     plugins: [
         /**
          * All files inside webpack's output.path directory will be removed once, but the
