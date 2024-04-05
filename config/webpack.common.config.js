@@ -78,6 +78,12 @@ module.exports = {
     //         }
     //     }
     // }
+
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
     plugins: [
         /**
          * All files inside webpack's output.path directory will be removed once, but the
