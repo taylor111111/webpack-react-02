@@ -8,7 +8,7 @@ module.exports = {
 
     entry: {
         index: './src/index.js',
-        print: './src/print.js',
+        // print: './src/print.js',
     },
     output: {
         filename: 'js/[name].[chunkhash:8].bundle.js',
@@ -78,6 +78,21 @@ module.exports = {
     //         }
     //     }
     // }
+
+    optimization: {
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
+    },
+
     plugins: [
         /**
          * All files inside webpack's output.path directory will be removed once, but the
