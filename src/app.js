@@ -9,6 +9,12 @@ import  './app.css';
 // import json from './data.json5';
 
 import printMe from './print.js';
+import styled from 'styled-components';
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 
 
 function App() {
@@ -30,7 +36,11 @@ function App() {
 
 
     return (
-        <div className="App">Hello World clean webpack plugin</div>
+        <div className="App">
+            Hello World clean webpack plugin
+
+            <Title>Hello World, this is my first styled component!</Title>
+        </div>
     );
 }
 
